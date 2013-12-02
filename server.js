@@ -4,12 +4,22 @@ var http  = require('http'),
 var app = express(),
     server = http.createServer();
 
-app.use(express.logger('dev'));
-app.use('/lib', express.static(__dirname + '/lib'));
-app.use(express.bodyParser());
+app.configure(function() {
+    app.engine('.html', require('ejs').__express);
+    app.set('view engine', 'html');
+    app.set('views', __dirname);
+
+    app.use('/lib', express.static(__dirname + '/lib'));
+
+    app.use(express.cookieParser());
+    app.use(express.session({ secret: 'smurfette' }));
+    app.use(express.bodyParser());
+    app.use(express.csrf());
+});
 
 app.get('/', function (req, res) {
- 	res.sendfile(__dirname + '/index.html')
+    res.locals.token = req.csrfToken();
+ 	res.render('index');
 });
 
 app.post('/files', function (req, res) {
