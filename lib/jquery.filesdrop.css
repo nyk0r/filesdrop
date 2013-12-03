@@ -17,7 +17,7 @@
 .button:active {
   background-color: #15517a;
 }
-.filesdrop {
+.files-drop {
   background-color: #d9dde1;
   border: 2px dashed #b4bbc4;
   display: table-cell;
@@ -30,16 +30,16 @@
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-.filesdrop.file-over {
+.files-drop.file-over {
   background-color: #97a1ae;
   border-color: #97a1ae;
   border-style: solid;
 }
-.filesdrop .messsage {
+.files-drop .messsage {
   display: inline-block;
   margin-bottom: 3px;
 }
-.filesdrop .upload {
+.files-drop .upload {
   display: block;
   position: relative;
   overflow: hidden;
@@ -47,7 +47,7 @@
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-.filesdrop .upload input[type="file"] {
+.files-drop .upload input[type="file"] {
   position: absolute;
   height: 100%;
   width: 100%;

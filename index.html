@@ -10,21 +10,14 @@
     </style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="/lib/jquery.filesdrop.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('input[type=file]').filesDrop();
+        });
+    </script>
 </head>
 <body>
-    <form action="/" method="post">
-        <div class="filesdrop">
-            <span class="message">Drag and drop your file<br/>Or select from a folder</span>
-            <div class="upload button">
-                <span>Upload</span>
-                <input type="file" name="files" />
-            </div>
-        </div>
-        <input type="hidden" name="_csrf" value="<%= token %>" />
-    </form>
-
-    <br /><br />
-
     <form action="/" method="post">
         <input type="file" name="files">
         <input type="hidden" name="_csrf" value="<%= token %>" />
